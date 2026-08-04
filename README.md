@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Career141 Chatbot 🤖
 
 This is my submission for the Career141 "AI-Powered Full-Stack Developer" technical assessment. It's a simple chatbot app — you type a message, it goes to my backend, my backend asks Google's Gemini AI for a reply, and the answer shows up in the chat.
@@ -180,3 +181,7 @@ If something goes wrong on the backend or with Gemini, you'll get a plain error 
 - Saving chat history so it survives a page refresh
 - Basic automated tests for the backend route
 - User accounts, so conversations aren't lost between sessions
+=======
+# Career141-chatbot-assesment
+Career141 CHATBOT ASSESMENT 
+>>>>>>> 32a165f28a672a68e978294f58236cfccbdac6ae
