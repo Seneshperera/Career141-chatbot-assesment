@@ -26,14 +26,16 @@ jobs:
       - name: Build the chatbot
         run: npm run build
 
-      - name: Deploy to server
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          SERVER_USER: ${{ secrets.SERVER_USER }}
-          SERVER_HOST: ${{ secrets.SERVER_HOST }}
-          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
-        run: |
-          echo "$SSH_PRIVATE_KEY" > private_key.pem
-          chmod 600 private_key.pem
-          scp -i private_key.pem -r ./dist/* $SERVER_USER@$SERVER_HOST:$DEPLOY_PATH
-          rm private_key.pem
+      # Deploy step disabled until server secrets (SSH_PRIVATE_KEY, SERVER_USER,
+      # SERVER_HOST, DEPLOY_PATH) are added under Settings > Secrets and variables > Actions
+      # - name: Deploy to server
+      #   env:
+      #     SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      #     SERVER_USER: ${{ secrets.SERVER_USER }}
+      #     SERVER_HOST: ${{ secrets.SERVER_HOST }}
+      #     DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+      #   run: |
+      #     echo "$SSH_PRIVATE_KEY" > private_key.pem
+      #     chmod 600 private_key.pem
+      #     scp -i private_key.pem -r ./dist/* $SERVER_USER@$SERVER_HOST:$DEPLOY_PATH
+      #     rm private_key.pem
