@@ -8,14 +8,17 @@ jobs:
   build-and-deploy:
     name: Build and Deploy Chat bot
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
     steps:
       - name: Checkout code
-        uses: actions/checkout@v7
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
-          node-version: '14'
+          node-version: '20'
 
       - name: Install dependencies
         run: npm install
@@ -35,5 +38,5 @@ jobs:
         run: |
           echo "$SSH_PRIVATE_KEY" > private_key.pem
           chmod 600 private_key.pem
-          scp -i private_key.pem -r ./build/* $SERVER_USER@$SERVER_HOST:$DEPLOY_PATH
+          scp -i private_key.pem -r ./dist/* $SERVER_USER@$SERVER_HOST:$DEPLOY_PATH
           rm private_key.pem
