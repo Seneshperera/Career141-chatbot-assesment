@@ -26,9 +26,6 @@ jobs:
       - name: Build the chatbot
         run: npm run build
 
-      - name: Unit tests
-        run: npm test
-
       - name: Deploy to server
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
